@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  adns-test:
+    container_name: "ADNS-Test"
+    image: adns-test
+    build:
+      dockerfile: Dockerfile
+      target: base
+    ports:
+      - "${PORT}:${PORT}"

@@ -1,0 +1,18 @@
+const path = require('path')
+const { nodeEnv } = require('./config');
+
+if (nodeEnv === 'test') {
+    module.exports = {
+        config: path.resolve('src/database/config', 'config.js'),
+        'models-path': path.resolve('src/database', 'models'),
+        'seeders-path': path.resolve('_tests_/database', 'seeders'),
+        'migrations-path': path.resolve('_tests_/database', 'migrations')
+    }
+}else{
+    module.exports = {
+        config: path.resolve('src/database/config', 'config.js'),
+        'models-path': path.resolve('src/database', 'models'),
+        'seeders-path': path.resolve('src/database', 'seeders'),
+        'migrations-path': path.resolve('src/database', 'migrations')
+    }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "ADNS-Test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "cross-env NODE_ENV=test npm run migration && cross-env NODE_ENV=test npm run seeder && cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha ./_tests_/server.js --timeout 50000 --exit",
+    "migration": "npm run migrate:undo && npm run migrate",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo:all",
+    "seeder": "npm run seed:undo && npm run seed:test",
+    "seed:test": "sequelize db:seed:all",
+    "seed": "node src/database/seeders",
+    "seed:undo": "sequelize db:seed:undo:all",
+    "lint": "eslint src/  --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "formidable": "^2.0.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
+    "mocha": "^9.2.2",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.18.0",
+    "sequelize-auto": "^0.8.8",
+    "sequelize-auto-migrations": "^1.0.3",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.13",
+    "v4": "0.0.1"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
+  }
+}
