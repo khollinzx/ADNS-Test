@@ -37,5 +37,4 @@ module.exports = class Auth {
             return errorResponse(res, responseCode.INTERNAL_SERVER_ERROR, 'An error occurred.', err);
         }
     }
-
 };

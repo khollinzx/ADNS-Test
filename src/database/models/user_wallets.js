@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     amount: {
       type: DataTypes.FLOAT,
       defaultValue: 0
+    },
+    wallet_type: {
+      type: DataTypes.STRING(225),
+      allowNull: false,
     }
   }, {
     sequelize,

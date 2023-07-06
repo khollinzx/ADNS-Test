@@ -16,7 +16,7 @@ module.exports = class MailgunService {
             const {
                 subject, userEmail, userName, template, variables,
             } = messageData;
-            variables.name = userName;
+            // variables.name = userName;
             this.msg.html = await ejs.renderFile(path.join(__dirname, `../../views/emails/${template}.ejs`), {variables}, {async: true});
             this.msg.to = userEmail;
             this.msg.subject = subject;

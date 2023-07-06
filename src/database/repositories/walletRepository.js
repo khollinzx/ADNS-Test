@@ -21,7 +21,7 @@ module.exports = class WalletRepository extends MainRepository{
      * @returns {Promise<Model|null>}
      * @param user_id
      */
-    async findUserByEmail(user_id ) {
+    async findUserWalletByUserId(user_id ) {
         return this.model.findOne({where: { user_id }});
     }
 

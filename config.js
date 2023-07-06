@@ -8,6 +8,8 @@ module.exports = {
     username: process.env.DB_USER,
     password: process.env.DB_PWD,
     host: process.env.DB_HOST,
-    senderEmail: process.env.MAIL_FROM_ADDRESS,
-    senderName: process.env.MAIL_FROM_NAME,
+    mailgunSenderEmail: process.env.MAIL_FROM_ADDRESS,
+    mailgunSender: process.env.MAIL_FROM_NAME,
+    mailgunKey: process.env.MAIL_API_KEY,
+    mailgunDomain: process.env.MAIL_DOMAIN_NAME,
 };

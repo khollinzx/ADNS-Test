@@ -26,8 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
-  users.associate = (models) => {
-    users.hasOne(models.user_wallets, {as: 'wallet'})
-  }
   return users;
 };

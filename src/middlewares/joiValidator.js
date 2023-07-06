@@ -18,6 +18,19 @@ module.exports =  class JoiValidator {
         });
         await validateRequest(req.body, res, next, UserSchema)
     }
+    /**
+     * Sign Up validation
+     * @param req
+     * @param res
+     * @param next
+     */
+    static createWallet = async (req, res, next) => {
+        const enumValues = ['Flex', 'Trybe'];
+        const UserSchema = Joi.object({
+            wallet_type: Joi.string().valid(...enumValues).required(),
+        });
+        await validateRequest(req.body, res, next, UserSchema)
+    }
 
     /**
      * Login validation
@@ -29,6 +42,19 @@ module.exports =  class JoiValidator {
         const UserSchema = Joi.object({
             email: Joi.string().email().required(),
             password: Joi.string().required()
+        });
+        await validateRequest(req.body, res, next, UserSchema)
+    }
+
+    /**
+     * Login validation
+     * @param req
+     * @param res
+     * @param next
+     */
+    static transactWallet = async (req, res, next) => {
+        const UserSchema = Joi.object({
+            amount: Joi.number().greater(100).required(),
         });
         await validateRequest(req.body, res, next, UserSchema)
     }

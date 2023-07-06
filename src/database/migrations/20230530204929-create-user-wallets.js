@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.FLOAT,
         defaultValue: 0
       },
+      wallet_type: {
+        type: Sequelize.STRING(225),
+        allowNull: false,
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
