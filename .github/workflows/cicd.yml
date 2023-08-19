@@ -1,2 +1,4 @@
 name: "ADNS-Test"
 on: workflow_dispatch
+jobs:
+  name: first-run-job
