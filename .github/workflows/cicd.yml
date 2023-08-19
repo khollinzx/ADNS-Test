@@ -1,4 +1,17 @@
 name: "ADNS-Test"
-on: workflow_dispatch
+on: push
+
 jobs:
-  name: first-run-job
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: install dependencies
+        run: npm ci
+      - name: Run serve
+        run: npm run dev
